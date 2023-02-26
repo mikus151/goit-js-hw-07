@@ -38,8 +38,8 @@ const galleryItem = galleryItems
     <img 
     class="gallery__image" 
     src="${item.preview}" 
-    data-source="${item.original}"/>
-    alt="${item.description}" 
+    data-source="${item.original}"
+    alt="${item.description}" />
     </a>
     </div>`
   )
