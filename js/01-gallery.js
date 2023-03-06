@@ -50,17 +50,14 @@ gallery.insertAdjacentHTML("beforeend", galleryItem);
 // okno modalne
 gallery.addEventListener("click", openModal);
 
-function openModal(event) 
-// usuwam domyślne działanie przeglądarki
-{
+function openModal(event) {
+  // usuwam domyślne działanie przeglądarki
   event.preventDefault();
   if (event.target.nodeName !== "IMG") {
     return;
   }
 
   // modal lightBox
-
-
 
   const instance = basicLightbox.create(
     `
@@ -75,7 +72,18 @@ function openModal(event)
         instance.element().querySelector("img").onclick = instance.close;
       },
     }
+    
   );
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      instance.close();
+    }
+  });
 
+  document.removeEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      instance.close();
+    }
+  });
   instance.show();
 }
